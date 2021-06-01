@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nytbooks.R
 import com.example.nytbooks.data.model.Book
-import kotlinx.android.synthetic.main.item_book.view.*
+import com.example.nytbooks.databinding.ItemBookBinding
 
 class BooksAdapter (
     private val books: List<Book>
@@ -14,12 +14,10 @@ class BooksAdapter (
 
     class BooksViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
-        private val title = itemView.textTitle
-        private val author = itemView.textAuthor
-
         fun bindView(book: Book){
-            title.text = book.title
-            author.text = book.author
+            val binding = ItemBookBinding.bind(itemView)
+            binding.textTitle.text = book.title
+            binding.textAuthor.text = book.author
         }
     }
 
