@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">NYT Books</string>
+    <string name="app_name">NYTBooks</string>
 
-    <!-- Books Activity -->
-    <string name="books_title">NYT Best Sellers List</string>
+    <string name="books_title">NYT Best Sellers</string>
 </resources>
