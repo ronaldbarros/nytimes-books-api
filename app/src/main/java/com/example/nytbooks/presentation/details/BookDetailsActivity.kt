@@ -16,6 +16,8 @@ class BookDetailsActivity : AppCompatActivity() {
 
         val toolbarMain = findViewById<View>(R.id.toolbarMain) as Toolbar
         toolbarMain.title = getString(R.string.books_details_title)
+        setSupportActionBar(toolbarMain)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         bookDetailsTitle.text = intent.getStringExtra(EXTRA_TITLE)
         bookDetailsDescription.text = intent.getStringExtra(EXTRA_DESCRIPTION)
