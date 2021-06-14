@@ -20,7 +20,6 @@ class BooksActivity : AppCompatActivity() {
         val toolbarMain = findViewById<View>(R.id.toolbarMain) as Toolbar
         toolbarMain.title = getString(R.string.books_title)
 
-
         val viewModel: BooksViewModel = ViewModelProvider(this).get(BooksViewModel::class.java)
 
         viewModel.booksLiveData.observe(this, Observer {

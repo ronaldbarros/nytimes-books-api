@@ -4,6 +4,8 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import androidx.appcompat.widget.Toolbar
 import com.example.nytbooks.R
 import kotlinx.android.synthetic.main.activity_book_details.*
 
@@ -12,10 +14,11 @@ class BookDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_book_details)
 
+        val toolbarMain = findViewById<View>(R.id.toolbarMain) as Toolbar
+        toolbarMain.title = getString(R.string.books_details_title)
+
         bookDetailsTitle.text = intent.getStringExtra(EXTRA_TITLE)
         bookDetailsDescription.text = intent.getStringExtra(EXTRA_DESCRIPTION)
-
-
     }
 
     companion object {
