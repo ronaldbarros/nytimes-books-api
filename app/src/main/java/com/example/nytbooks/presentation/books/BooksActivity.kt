@@ -29,9 +29,22 @@ class BooksActivity : AppCompatActivity() {
                         LinearLayoutManager(this@BooksActivity, RecyclerView.VERTICAL, false)
                     setHasFixedSize(true)
                     adapter = BooksAdapter(books) { book ->
-                        val intent = BookDetailsActivity.getStartIntent(this@BooksActivity, book.title, book.description)
+                        val intent = BookDetailsActivity.getStartIntent(
+                            this@BooksActivity,
+                            book.title,
+                            book.description
+                        )
                         this@BooksActivity.startActivity(intent)
                     }
+                }
+            }
+        })
+
+        viewModel.viewFlipperLiveData.observe(this, Observer { it?.let { viewFlipper ->
+                viewFlipperBooks.displayedChild = viewFlipper.first
+
+                viewFlipper.second?.let { errorMessageResId ->
+                    textViewError.text = getString(errorMessageResId)
                 }
             }
         })

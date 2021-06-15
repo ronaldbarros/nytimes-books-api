@@ -2,6 +2,10 @@
     <string name="app_name">NYTBooks</string>
 
     <string name="books_title">NYT Best Sellers List</string>
+    <string name="books_error_401">401 Unauthorized Error</string>
+    <string name="books_error_400_generic">Bad Request error</string>
+    <string name="books_error_500_generic">Catastrophic failure</string>
+
     <string name="books_details_title">Book Details</string>
 
     <string name="book_details_title_label">Title</string>
