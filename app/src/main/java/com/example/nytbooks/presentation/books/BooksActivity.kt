@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.nytbooks.R
+import com.example.nytbooks.data.repository.BooksApiDataSource
 import com.example.nytbooks.presentation.details.BookDetailsActivity
 import kotlinx.android.synthetic.main.activity_books.*
 
@@ -20,7 +21,8 @@ class BooksActivity : AppCompatActivity() {
         val toolbarMain = findViewById<View>(R.id.toolbarMain) as Toolbar
         toolbarMain.title = getString(R.string.books_title)
 
-        val viewModel: BooksViewModel = ViewModelProvider(this).get(BooksViewModel::class.java)
+        val viewModel: BooksViewModel = BooksViewModel.ViewModelFactory(BooksApiDataSource())
+            .create(BooksViewModel::class.java)
 
         viewModel.booksLiveData.observe(this, Observer {
             it?.let { books ->
